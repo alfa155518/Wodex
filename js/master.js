@@ -14,29 +14,44 @@ let sideBarClose = document.querySelector(".side-bar .close");
 
 let arrowToTop  = document.querySelector(".arrow")
 
-let productsNameSectionsAll = document.querySelector(".products-name .sections .all")
-
-let productsNameSectionsDec = document.querySelector(".products-name .sections .dec")
-
-let productsNameSectionsAccess = document.querySelector(".products-name .sections .access")
-
-let productsNameSectionsFurniture = document.querySelector(".products-name .sections .furniture")
-
-let allProductsBoxDec = document.querySelectorAll(".products-card .dec");
-
-let allProductsBoxAccess = document.querySelectorAll(".products-card .access");
-
-let allProductsBoxFurniture = document.querySelectorAll(".products-card .furniture");
-
 let addToFavorite = document.querySelectorAll(".products-card .image .requirements i:first-child");
 
 let addToShopping = document.querySelectorAll(".products-card .image .requirements .shop");
+
+let allLi = document.querySelectorAll(".popular-product .products-name ul li");
+
+let allCards = document.querySelectorAll(".products-card .card");
 
 let navHeart = document.querySelector("nav .heart span")
 
 let navShop = document.querySelector("nav .shop span")
 
 
+
+
+// switch between Products 
+allLi.forEach(li => {
+    li.addEventListener("click", switchProducts);
+})
+
+
+// function to switch between Products 
+function switchProducts() {
+    allLi.forEach(li => {
+        li.classList.remove("active");
+        this.classList.add("active");
+    });
+    allCards.forEach(card => {
+        card.style.display = 'none';
+    });
+    document.querySelectorAll(this.dataset.name).forEach(el => {
+        el.style.display = 'block';
+    });
+};
+
+
+/**//**//**//**//**//**//**//**//**/
+/**//**//**//**//**//**//**//**//**/
 
 
 // click user 
@@ -81,73 +96,6 @@ arrowToTop.onclick = function() {
 /**//**//**//**//**//**//**//**//**/
 /**//**//**//**//**//**//**//**//**/
 
-
-// click no function Show productsNameSections Furniture Card 
-productsNameSectionsFurniture.onclick =   productsNameSectionsFurnitureCard;
-
-// Click on function Show productsNameSections Accessory card
-productsNameSectionsAccess.onclick =   productsNameSectionsAccessCard;
-
-// click on function Show productsNameSections Decoration Card
-productsNameSectionsDec.onclick =   productsNameSectionsDecCard;
-
-
-
-// function Show productsNameSections Furniture Card
-function productsNameSectionsFurnitureCard() {
-    addNoActiveClasses();
-    allProductsBoxFurniture.forEach(card => {
-        if (card.classList = productsNameSectionsAccess.dataset.name ) {
-            card.classList.remove("no-active");
-        } else {
-            return false;
-        }
-    });
-};
-
-
-// function Show productsNameSections Decoration Card
-function productsNameSectionsDecCard() {
-    addNoActiveClasses();
-    allProductsBoxDec.forEach(card => {
-        if (card.classList = productsNameSectionsAccess.dataset.name ) {
-            card.classList.remove("no-active");
-        } else {
-            return false;
-        }
-    });
-};
-
-
-// function Show productsNameSections Accessory card
-function productsNameSectionsAccessCard() {
-    addNoActiveClasses();
-    allProductsBoxAccess.forEach(card => {
-        if (card.classList = productsNameSectionsAccess.dataset.name ) {
-            card.classList.remove("no-active");
-        } else {
-            return false;
-        }
-    });
-};
-
-
-// function add No Active class
-function addNoActiveClasses() {
-    allProductsBoxAccess.forEach(card => {
-        card.classList.add("no-active")
-    });
-    allProductsBoxDec.forEach(card => {
-        card.classList.add("no-active")
-    });
-    allProductsBoxFurniture.forEach(card => {
-        card.classList.add("no-active")
-    });
-};
-
-
-/**//**//**//**//**//**//**//**//**/
-/**//**//**//**//**//**//**//**//**/
 
 // add to favorite
 addToFavorite.forEach(heart => {

@@ -472,7 +472,7 @@
     width: 1px;
     height: 20px;
 }
-.products-name .sections ul span {
+.products-name .sections ul li {
     color: var(--cubic-in);
     font-size: 17px;
     transition: var(--transition-2);
@@ -482,12 +482,11 @@
     -o-transition: var(--transition-2);
     cursor: pointer;
 }
-.products-name .sections ul a:hover {
+.products-name .sections ul li.active {
     color: var(--tan-crayola);
 }
-.products-name .sections ul li:first-child {
+.products-name .sections ul a:hover {
     color: var(--tan-crayola);
-    
 }
 
 
@@ -497,16 +496,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
 }
-.products-card .dec.no-active {
-    display: none;
-}
-.products-card .access.no-active {
-    display: none;
-}
-.products-card .furniture-no.active {
-    display: none;
-}
-
 
 .products-card .card {
     position: relative;
